@@ -19,7 +19,7 @@
             color: white;
             overflow: hidden;
         }
-        .heart, .flower, .special {
+        .heart, .flower, .special ,.heart2,.extra{
             position: absolute;
             font-size: 20px;
             animation: float 5s linear infinite;
@@ -59,7 +59,7 @@
             font-style: italic;
             font-family: 'Arial', sans-serif;
         }
-        .love-btn {
+       .love-btn {
             margin-top: 20px;
             padding: 10px 20px;
             font-size: 1.2rem;
@@ -86,9 +86,21 @@
             border-radius: 5px;
             cursor: pointer;
             font-family: 'Arial', sans-serif;
+            animation: floating 2s infinite ease-in-out;
         }
         .corner-btn:hover {
             background: darkred;
+        }
+        @keyframes floating {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -97,7 +109,7 @@
         function createHeart() {
             const heart = document.createElement("div");
             heart.classList.add("heart");
-            heart.innerText = "❤️";
+            heart.innerText = "❤️💘";
             heart.style.left = Math.random() * 100 + "vw";
             heart.style.animationDuration = Math.random() * 3 + 2 + "s";
             document.body.appendChild(heart);
@@ -127,37 +139,65 @@
                 special.remove();
             }, 5000);
         }
+
+         function createExtra() {
+            const extra = document.createElement("div");
+            extra.classList.add("extra");
+            extra.innerText = "💗";
+            extra.style.left = Math.random() * 100 + "vw";
+            extra.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(extra);
+            setTimeout(() => {
+                extra.remove();
+            }, 5000);
+        }
+
+         function createHeart2() {
+            const heart2 = document.createElement("div");
+            heart2.classList.add("heart2");
+            heart2.innerText = "💞";
+            heart2.style.left = Math.random() * 100 + "vw";
+            heart2.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(heart2);
+            setTimeout(() => {
+                heart2.remove();
+            }, 5000);
+        }
+
         setInterval(createHeart, 100);
         setInterval(createFlower, 200);
         setInterval(createSpecial, 300);
+        setInterval(createExtra, 400);
+        setInterval(createHeart2, 500);
     </script>
 
- <button class="corner-btn" onclick="messageClick()">💌</button>
+ <button class="corner-btn" onclick="messageClick()">1 unread message!  💌</button>
 
     <div class="container">
-        <h1>Happy Valentine’s Day! ❤️</h1>
-        <p id="loveMessage">Cinta adalah saat kamu menemukan seseorang yang membuat hatimu tersenyum tanpa alasan.</p>
-        <button class="love-btn" onclick="changeMessage()">Klik untuk Pesan Cinta</button>
+        <h1> Reason Whyyy I Like Youuu❤️</h1>
+        <p id="loveMessage">Tapi kalo boleh jujur aku ngerasa susah aja ngejelasin kenapa ak bisa suka kamu, kek sulid mendefinisikannya aja ga boong asli👉👈.</p>
+        <button class="love-btn" onclick="changeMessage()">Klik akuuu</button>
     </div>
     <script>
         const messages = [
-            "Tapi kalo boleh jujur aku ngerasa susah aja ngejelasin kenapa ak bisa suka kamu, kek sulid mendefinisikannya aja ga boong asli",
+            "Entahlah aku ngerasa nyaman aja waktu bisa sama kamu",
             "Jago banget bisa ngalahin boss di wukong cmn bentar, lah aku seabadddd😭",
-            "Positive vibes orangnya",
-            "Bisa di andelin ngebantu bangettt pas lagi ngerjain tugas kelompokk...",
-            "Aku ngerasa senang aja gt denger kamu cerita tentang hidup kamu kaya gmn, ngedumel, apalagi klo udh ngomomg campur inggris wkwkwk",
-            "Entah mengapa aku tuh ngerasa nyaman aja kalo lagi di deket kamu...",
-            "Kamu tuh orang nya lucu bgtt tau gak si...",
-            "Kamu baikkk sama perhatian bangett...",
-            "Kamu selalu semangatin aku pas aku lagi down + stress...",
-            "Setiap detik bersamamu adalah salah satu hadiah terindah dalam hidupku, dari awal balik bareng naik KRL sampe terakhir di LRT itu berkesan banget sih dalam diriku"
+            "Positive vibes orangnya😆",
+            "Bisa di andelin ngebantu bangettt pas lagi ngerjain tugas kelompokk...🫡",
+            "Aku ngerasa senang aja gt denger kamu cerita tentang keseharian kamu kaya gmn, ngedumel, apalagi klo udh ngomomg campur inggris wkwkwk😄",
+            "Entah mengapa aku tuh ngerasa nyaman aja kalo lagi di deket kamu...☺",
+            "Kamu tuh orang nya lucu bgtt tau gak si...😗",
+            "Kamu baikkk sama perhatian bangett🌹",
+            "Kamu selalu semangatin aku pas aku lagi down + stress",
+            "Setiap detik bersamamu adalah salah satu hadiah terindah dalam hidupku, dari awal balik bareng naik KRL sampe terakhir di LRT itu berkesan banget sih dalam diriku🌷"
         ];
+        let messageIndex = 0;
         function changeMessage() {
-            const randomIndex = Math.floor(Math.random() * messages.length);
-            document.getElementById("loveMessage").innerText = messages[randomIndex];
+            document.getElementById("loveMessage").innerText = messages[messageIndex];
+            messageIndex = (messageIndex + 1) % messages.length;
         }
         function messageClick() {
-  window.location.href = "message.html";
+             window.location.href = "message.html";
 }
        
     </script>
