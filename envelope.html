@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Love</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Arial:wght@400;700&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #EAA8AC;
+            text-align: center;
+            font-family: 'Great Vibes', cursive;
+            color: white;
+            overflow: hidden;
+        }
+        .heart, .flower, .special {
+            position: absolute;
+            font-size: 20px;
+            animation: float 5s linear infinite;
+        }
+        .heart {
+            color: red;
+        }
+        .flower {
+            color: pink;
+        }
+        .special {
+            font-size: 25px;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 10;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        p {
+            font-size: 1.5rem;
+            font-style: italic;
+            font-family: 'Arial', sans-serif;
+        }
+        .love-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            background: pink;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Arial', sans-serif;
+        }
+        .love-btn:hover {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerText = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        function createFlower() {
+            const flower = document.createElement("div");
+            flower.classList.add("flower");
+            flower.innerText = "🌹";
+            flower.style.left = Math.random() * 100 + "vw";
+            flower.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(flower);
+            setTimeout(() => {
+                flower.remove();
+            }, 5000);
+        }
+        function createSpecial() {
+            const special = document.createElement("div");
+            special.classList.add("special");
+            special.innerText = "💖🌷";
+            special.style.left = Math.random() * 100 + "vw";
+            special.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(special);
+            setTimeout(() => {
+                special.remove();
+            }, 5000);
+        }
+        setInterval(createHeart, 100);
+        setInterval(createFlower, 200);
+        setInterval(createSpecial, 300);
+    </script>
+    
+    <div class="container">
+        <h1>Happy Valentine’s Day! ❤️</h1>
+        <p id="loveMessage">Cinta adalah saat kamu menemukan seseorang yang membuat hatimu tersenyum tanpa alasan.</p>
+        <button class="love-btn" onclick="changeMessage()">Kenapa ak bs sukak kamu</button>
+    </div>
+
+    <script>
+        const messages = [
+            "Tapi kalo boleh jujur aku ngerasa susah aja ngejelasin kenapa ak bisa suka kamu, kek sulid mendefinisikannya aja ga boong asli",
+            "Jago banget bisa ngalahin boss di wukong cmn bentar, lah aku seabadddd😭",
+            "Positive vibes orangnya",
+            "Bisa di andelin ngebantu bangettt pas lagi ngerjain tugas kelompokk...",
+            "Aku ngerasa senang aja gt denger kamu cerita tentang hidup kamu kaya gmn, ngedumel, apalagi klo udh ngomomg campur inggris wkwkwk",
+            "Entah mengapa aku tuh ngerasa nyaman aja kalo lagi di deket kamu...",
+            "Kamu tuh orang nya lucu bgtt tau gak si...",
+            "Kamu baikkk sama perhatian bangett...",
+            "Kamu selalu semangatin aku pas aku lagi down + stress...",
+            "Setiap detik bersamamu adalah salah satu hadiah terindah dalam hidupku, dari awal balik bareng naik KRL sampe terakhir di LRT itu berkesan banget sih dalam diriku"
+        ];
+        function changeMessage() {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            document.getElementById("loveMessage").innerText = messages[randomIndex];
+        }
+    </script>
+</body>
+</html>
