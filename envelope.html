@@ -74,9 +74,25 @@
         .love-btn:hover {
             background: red;
         }
+        .corner-btn {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Arial', sans-serif;
+        }
+        .corner-btn:hover {
+            background: darkred;
+        }
     </style>
 </head>
-<body>
+   </div>
     <script>
         function createHeart() {
             const heart = document.createElement("div");
@@ -115,13 +131,14 @@
         setInterval(createFlower, 200);
         setInterval(createSpecial, 300);
     </script>
-    
+
+ <button class="corner-btn" onclick="messageClick()">💌</button>
+
     <div class="container">
         <h1>Happy Valentine’s Day! ❤️</h1>
         <p id="loveMessage">Cinta adalah saat kamu menemukan seseorang yang membuat hatimu tersenyum tanpa alasan.</p>
-        <button class="love-btn" onclick="changeMessage()">Kenapa ak bs sukak kamu</button>
+        <button class="love-btn" onclick="changeMessage()">Klik untuk Pesan Cinta</button>
     </div>
-
     <script>
         const messages = [
             "Tapi kalo boleh jujur aku ngerasa susah aja ngejelasin kenapa ak bisa suka kamu, kek sulid mendefinisikannya aja ga boong asli",
@@ -139,6 +156,11 @@
             const randomIndex = Math.floor(Math.random() * messages.length);
             document.getElementById("loveMessage").innerText = messages[randomIndex];
         }
+        function messageClick() {
+  window.location.href = "message.html";
+}
+       
     </script>
+  
 </body>
 </html>
